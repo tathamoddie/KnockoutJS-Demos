@@ -1,4 +1,6 @@
-﻿<h3>Lives</h3>
+﻿@model QuotePoc.WebUI.Models.Life
+
+<h3>Lives</h3>
 <p>
     <button data-bind="click: addLife">Add a life</button>
 </p>
@@ -15,10 +17,10 @@
         </tr>
         {{each(i, life) lives()}}
             <tr>
-                <td><input name="Lives[${ i }].Title" data-bind="value: title" /></td>
-                <td><input name="Lives[${ i }].FirstName" data-bind="value: firstName" /></td>
-                <td><input name="Lives[${ i }].LastName" data-bind="value: lastName" /></td>
-                <td><input name="Lives[${ i }].DateOfBirth" data-bind="value: dateOfBirth, valueUpdate: 'afterkeydown'" /></td>
+                <td>@Html.KnockoutEditorFor(l => l.Title, "value: title")</td>
+                <td>@Html.KnockoutEditorFor(l => l.FirstName, "value: firstName")</td>
+                <td>@Html.KnockoutEditorFor(l => l.LastName, "value: lastName")</td>
+                <td>@Html.KnockoutEditorFor(l => l.DateOfBirth, "value: dateOfBirth, valueUpdate: 'afterkeydown'")</td>
                 <td><span data-bind="text: ageNext" /></td>
             </tr>
         {{/each}}

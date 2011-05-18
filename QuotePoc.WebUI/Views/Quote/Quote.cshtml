@@ -14,7 +14,7 @@
 
 @using (Html.BeginForm()) {
     <div class="quote-interface">
-        @{Html.RenderPartial("Lives");}
+        @{Html.RenderPartial("Lives", new ViewDataDictionary());}
         <input type="submit" value="Calculate" />
     </div>
 }
