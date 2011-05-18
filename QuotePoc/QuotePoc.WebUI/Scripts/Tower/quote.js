@@ -11,7 +11,8 @@ var quoteInterfaceManager = function () {
             dateOfBirth: ko.observable("")
         };
         vm.ageNext = ko.dependentObservable(function () {
-            return vm.firstName().length;
+            var parsedDateOfBirth = new Date(vm.dateOfBirth());
+            return new Date().getFullYear() - parsedDateOfBirth.getFullYear();
         });
         return vm;
     };
