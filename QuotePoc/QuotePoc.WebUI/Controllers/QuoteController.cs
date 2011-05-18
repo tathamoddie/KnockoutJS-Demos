@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using QuotePoc.WebUI.Models;
 
 namespace QuotePoc.WebUI.Controllers
 {
@@ -6,7 +7,7 @@ namespace QuotePoc.WebUI.Controllers
     {
         public ActionResult Quote()
         {
-            return View();
+            return View(new Quote());
         }
     }
 }
