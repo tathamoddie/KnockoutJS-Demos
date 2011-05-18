@@ -8,4 +8,7 @@
 
 <h2>Quote</h2>
 
-@{Html.RenderPartial("Lives");}
+@using (Html.BeginForm()) {
+    Html.RenderPartial("Lives");
+    <input type="submit" value="Calculate" />
+}
