@@ -5,6 +5,8 @@ namespace QuotePoc.WebUI.Models
 {
     public class Life
     {
+        [Required]
+        [StringLength(5, MinimumLength = 2)]
         public string Title { get; set; }
 
         [Display(Name = "First Name")]
