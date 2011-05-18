@@ -15,6 +15,11 @@ namespace QuotePoc.WebUI.Controllers
         [HttpPost]
         public ActionResult Quote(Quote quote)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(quote);
+            }
+
             return Json(quote, MediaTypeNames.Text.Plain, JsonRequestBehavior.AllowGet);
         }
     }

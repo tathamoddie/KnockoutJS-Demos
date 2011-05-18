@@ -10,6 +10,8 @@
 
 <h2>Quote</h2>
 
+@Html.ValidationSummary()
+
 @using (Html.BeginForm()) {
     <div class="quote-interface">
         @{Html.RenderPartial("Lives");}
