@@ -3,11 +3,21 @@
 
 var quoteInterfaceManager = function () {
 
+    var lifeViewModel = function () {
+        return {
+            title: "",
+            firstName: "",
+            lastName: ""
+        };
+    };
+
     var viewModel = {
-        lives: new ko.observableArray([
-            { title: "Mr", firstName: "Tatham", lastName: "Oddie" },
-            { title: "Mr", firstName: "Jake", lastName: "Robson" }
-        ])
+
+        lives: new ko.observableArray(),
+
+        addLife: function () {
+            viewModel.lives.push(new lifeViewModel());
+        }
     };
 
     return {
@@ -16,6 +26,6 @@ var quoteInterfaceManager = function () {
         }
     };
 
-}();
+} ();
 
 $(quoteInterfaceManager.init);
