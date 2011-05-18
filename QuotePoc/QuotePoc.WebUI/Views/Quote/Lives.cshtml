@@ -18,7 +18,7 @@
                 <td><input name="Lives[${ i }].Title" data-bind="value: title" /></td>
                 <td><input name="Lives[${ i }].FirstName" data-bind="value: firstName" /></td>
                 <td><input name="Lives[${ i }].LastName" data-bind="value: lastName" /></td>
-                <td><input name="Lives[${ i }].DateOfBirth" data-bind="value: dateOfBirth" /></td>
+                <td><input name="Lives[${ i }].DateOfBirth" data-bind="value: dateOfBirth, valueUpdate: 'afterkeydown'" /></td>
                 <td><span data-bind="text: ageNext" /></td>
             </tr>
         {{/each}}
