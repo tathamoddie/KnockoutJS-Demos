@@ -18,18 +18,19 @@ var quoteInterfaceManager = function () {
         return vm;
     };
 
-    var viewModel = {
-
-        lives: new ko.observableArray(),
-
-        addLife: function () {
-            viewModel.lives.push(new lifeViewModel());
-        }
+    var quoteViewModel = function () {
+        var vm = {
+            lives: new ko.observableArray()
+        };
+        vm.addLife = function () {
+            vm.lives.push(new lifeViewModel());
+        };
+        return vm;
     };
 
     return {
         init: function () {
-            ko.applyBindings(viewModel);
+            ko.applyBindings(new quoteViewModel());
         }
     };
 
