@@ -27,5 +27,7 @@ var quoteViewModel = function () {
 };
 
 $(function () {
-    ko.applyBindings(new quoteViewModel());
+    $(".quote-interface").each(function () {
+        ko.applyBindings(new quoteViewModel(), this);
+    });
 });

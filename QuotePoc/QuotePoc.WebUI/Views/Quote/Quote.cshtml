@@ -11,6 +11,8 @@
 <h2>Quote</h2>
 
 @using (Html.BeginForm()) {
-    Html.RenderPartial("Lives");
-    <input type="submit" value="Calculate" />
+    <div class="quote-interface">
+        @{Html.RenderPartial("Lives");}
+        <input type="submit" value="Calculate" />
+    </div>
 }
