@@ -11,13 +11,15 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Date of Birth</th>
+            <th>Age Next</th>
         </tr>
         {{each(i, life) lives()}}
             <tr>
                 <td><input name="Lives[${ i }].Title" data-bind="value: title" /></td>
                 <td><input name="Lives[${ i }].FirstName" data-bind="value: firstName" /></td>
                 <td><input name="Lives[${ i }].LastName" data-bind="value: lastName" /></td>
-                <td><input name="Lives[${ i }].DateOfBirth" data-bind="value: ageNext" /></td>
+                <td><input name="Lives[${ i }].DateOfBirth" data-bind="value: dateOfBirth, valueUpdate: 'aterkeydown'" /></td>
+                <td><input data-bind="value: ageNext" /></td>
             </tr>
         {{/each}}
     </table>
