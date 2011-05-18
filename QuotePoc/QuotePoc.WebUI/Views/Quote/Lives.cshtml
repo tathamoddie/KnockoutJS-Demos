@@ -10,9 +10,9 @@
         </tr>
         {{each(i, life) lives()}}
             <tr>
-                <td><input data-bind="value: title" /></td>
-                <td><input data-bind="value: firstName" /></td>
-                <td><input data-bind="value: lastName" /></td>
+                <td><input name="Lives[${ i }].Title" data-bind="value: title" /></td>
+                <td><input name="Lives[${ i }].FirstName" data-bind="value: firstName" /></td>
+                <td><input name="Lives[${ i }].LastName" data-bind="value: lastName" /></td>
             </tr>
         {{/each}}
     </table>
