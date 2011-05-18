@@ -12,7 +12,8 @@ var quoteInterfaceManager = function () {
         };
         vm.ageNext = ko.dependentObservable(function () {
             var parsedDateOfBirth = new Date(vm.dateOfBirth());
-            return new Date().getFullYear() - parsedDateOfBirth.getFullYear();
+            var years = new Date().getFullYear() - parsedDateOfBirth.getFullYear();
+            return isNaN(years) ? '' : years;
         });
         return vm;
     };
