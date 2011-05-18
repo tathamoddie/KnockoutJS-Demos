@@ -1,0 +1,19 @@
+﻿<h3>Lives</h3>
+<div id="quote-lives" data-bind='template: "quote-lives-template"'></div>
+
+<script type="text/html" id="quote-lives-template">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        {{each(i, life) lives()}}
+            <tr>
+                <td><input data-bind="value: title" /></td>
+                <td><input data-bind="value: firstName" /></td>
+                <td><input data-bind="value: lastName" /></td>
+            </tr>
+        {{/each}}
+    </table>
+</script>
