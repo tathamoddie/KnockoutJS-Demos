@@ -4,11 +4,16 @@
 var quoteInterfaceManager = function () {
 
     var lifeViewModel = function () {
-        return {
-            title: "",
-            firstName: "",
-            lastName: ""
+        var vm = {
+            title: ko.observable(""),
+            firstName: ko.observable(""),
+            lastName: ko.observable(""),
+            dateOfBirth: ko.observable("")
         };
+        vm.ageNext = ko.dependentObservable(function () {
+            return vm.firstName().length;
+        });
+        return vm;
     };
 
     var viewModel = {
