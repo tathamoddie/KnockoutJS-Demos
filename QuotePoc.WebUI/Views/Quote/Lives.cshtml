@@ -30,7 +30,7 @@
                     @Html.KnockoutValidationMessageFor(l => l.LastName)
                 </td>
                 <td>
-                    @Html.KnockoutEditorFor(l => l.DateOfBirth, "value: dateOfBirth, valueUpdate: 'afterkeydown'")
+                    @Html.KnockoutEditorFor(l => l.DateOfBirth, "value: formattedDateOfBirth, valueUpdate: 'afterkeydown'")
                     @Html.KnockoutValidationMessageFor(l => l.DateOfBirth)
                 </td>
                 <td><span data-bind="text: ageNext" /></td>
