@@ -20,6 +20,9 @@ var quoteViewModel = function () {
     var vm = {
         lives: new ko.observableArray()
     };
+    vm.submitEnabled = ko.dependentObservable(function () {
+        return vm.lives().length > 0;
+    });
     vm.addLife = function () {
         vm.lives.push(new lifeViewModel());
         $("form").removeData("validator");
