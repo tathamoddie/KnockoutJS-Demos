@@ -478,3 +478,18 @@ if (!JSON) {
         };
     }
 } ());
+
+(function () {
+    var _origParse = JSON.parse;
+    JSON.parse = function (text) {
+        return _origParse(text, function (key, value) {
+            var a;
+            if (typeof value === 'string') {
+                a = /\/Date\((.*)\)\//i.exec(value);
+                if (a)
+                    return new Date(+a[1]);
+            }
+            return value;
+        });
+    }
+})();
