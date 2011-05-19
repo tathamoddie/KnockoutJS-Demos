@@ -20,5 +20,17 @@ namespace QuotePoc.WebUI.Extensions
 
             return new MvcHtmlString(knockoutEditorHtml);
         }
+
+        public static MvcHtmlString KnockoutValidationMessageFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression)
+        {
+            #warning This method is a horrible, horrible hack that needs to die quickly. It is only implemented this way to serve the needs of the time-boxed POC.
+
+            var originalHtml = html.ValidationMessageFor(expression).ToHtmlString();
+
+            var knockoutHtml = originalHtml
+                .Replace(" data-valmsg-for=\"", string.Format(" data-valmsg-for=\"{0}[${{i}}].", "Lives"));
+
+            return new MvcHtmlString(knockoutHtml);
+        }
     }
 }

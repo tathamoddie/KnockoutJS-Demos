@@ -17,10 +17,22 @@
         </tr>
         {{each(i, life) lives()}}
             <tr>
-                <td>@Html.KnockoutEditorFor(l => l.Title, "value: title")</td>
-                <td>@Html.KnockoutEditorFor(l => l.FirstName, "value: firstName")</td>
-                <td>@Html.KnockoutEditorFor(l => l.LastName, "value: lastName")</td>
-                <td>@Html.KnockoutEditorFor(l => l.DateOfBirth, "value: dateOfBirth, valueUpdate: 'afterkeydown'")</td>
+                <td>
+                    @Html.KnockoutEditorFor(l => l.Title, "value: title")
+                    @Html.KnockoutValidationMessageFor(l => l.Title)
+                </td>
+                <td>
+                    @Html.KnockoutEditorFor(l => l.FirstName, "value: firstName")
+                    @Html.KnockoutValidationMessageFor(l => l.FirstName)
+                </td>
+                <td>
+                    @Html.KnockoutEditorFor(l => l.LastName, "value: lastName")
+                    @Html.KnockoutValidationMessageFor(l => l.LastName)
+                </td>
+                <td>
+                    @Html.KnockoutEditorFor(l => l.DateOfBirth, "value: dateOfBirth, valueUpdate: 'afterkeydown'")
+                    @Html.KnockoutValidationMessageFor(l => l.DateOfBirth)
+                </td>
                 <td><span data-bind="text: ageNext" /></td>
             </tr>
         {{/each}}
