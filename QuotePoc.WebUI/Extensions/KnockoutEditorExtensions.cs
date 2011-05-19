@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using System.Web.Script.Serialization;
 
 namespace QuotePoc.WebUI.Extensions
 {
@@ -31,6 +32,16 @@ namespace QuotePoc.WebUI.Extensions
                 .Replace(" data-valmsg-for=\"", string.Format(" data-valmsg-for=\"{0}[${{i}}].", "Lives"));
 
             return new MvcHtmlString(knockoutHtml);
+        }
+
+        public static MvcHtmlString KnockoutState<TModel>(this HtmlHelper<TModel> html)
+        {
+            var model = html.ViewData.Model;
+            var output = string.Format(
+                "<script type=\"text/json\" class=\"knockout-initial-data\">{0}</script>",
+                new JavaScriptSerializer().Serialize(model));
+
+            return new MvcHtmlString(output);
         }
     }
 }

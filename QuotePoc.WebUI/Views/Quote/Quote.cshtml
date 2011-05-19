@@ -16,8 +16,6 @@
     <div class="quote-interface">
         @{Html.RenderPartial("Lives", new ViewDataDictionary());}
         <input type="submit" value="Calculate" data-bind="enable: submitEnabled" />
-        <script type="text/json" class="knockout-initial-data">
-            @Html.Raw(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model))
-        </script>
+        @Html.KnockoutState()
     </div>
 }
