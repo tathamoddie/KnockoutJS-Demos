@@ -32,5 +32,5 @@ var quoteViewModel = function () {
 };
 
 $(function () {
-    applyKnockout($(".quote-interface"), quoteViewModel);
+    $(".quote-interface").applyViewModel(quoteViewModel);
 });
