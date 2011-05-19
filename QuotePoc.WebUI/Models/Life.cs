@@ -21,6 +21,6 @@ namespace QuotePoc.WebUI.Models
 
         [Display(Name = "Date of Birth")]
         [Required]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
     }
 }
