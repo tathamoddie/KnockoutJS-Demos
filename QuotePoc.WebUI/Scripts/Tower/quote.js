@@ -34,20 +34,6 @@ var quoteViewModel = function () {
         vm.lives.push(new lifeViewModel());
         refreshValidation();
     };
-    vm.initialize = function (initialData) {
-        if (initialData.Lives) {
-            var lifeCount = initialData.Lives.length;
-            for (var i = 0; i < lifeCount; i++) {
-                var life = initialData.Lives[i];
-                var lifeVM = new lifeViewModel();
-                lifeVM.title(life.Title);
-                lifeVM.firstName(life.FirstName);
-                lifeVM.lastName(life.LastName);
-                lifeVM.dateOfBirth(life.DateOfBirth);
-                vm.lives.push(lifeVM);
-            }
-        }
-    };
     return vm;
 };
 
@@ -57,7 +43,18 @@ $(function () {
         var initialJson = $(this).find("script.knockout-initial-data").html();
         if (initialJson.length > 0) {
             var initialData = JSON.parse(initialJson);
-            viewModel.initialize(initialData);
+            if (initialData.Lives) {
+                var lifeCount = initialData.Lives.length;
+                for (var i = 0; i < lifeCount; i++) {
+                    var life = initialData.Lives[i];
+                    var lifeVM = new lifeViewModel();
+                    lifeVM.title(life.Title);
+                    lifeVM.firstName(life.FirstName);
+                    lifeVM.lastName(life.LastName);
+                    lifeVM.dateOfBirth(life.DateOfBirth);
+                    viewModel.lives.push(lifeVM);
+                }
+            }
         };
         ko.applyBindings(viewModel, this);
     });
