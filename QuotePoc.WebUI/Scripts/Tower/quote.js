@@ -1,6 +1,12 @@
 ﻿/// <reference path="../jquery-1.5.1.js" />
 /// <reference path="../knockout-1.2.0.js" />
 
+var refreshValidation = function () {
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+};
+
 var lifeViewModel = function () {
     var vm = {
         title: ko.observable(""),
@@ -25,15 +31,31 @@ var quoteViewModel = function () {
     });
     vm.addLife = function () {
         vm.lives.push(new lifeViewModel());
-        $("form").removeData("validator");
-        $("form").removeData("unobtrusiveValidation");
-        $.validator.unobtrusive.parse("form");
+        refreshValidation();
+    };
+    vm.initialize = function (initialData) {
+        var lifeCount = initialData.Lives.length;
+        for (var i = 0; i < lifeCount; i++) {
+            var life = initialData.Lives[i];
+            var lifeVM = new lifeViewModel();
+            lifeVM.title(life.Title);
+            lifeVM.firstName(life.FirstName);
+            lifeVM.lastName(life.LastName);
+            lifeVM.dateOfBirth(life.DateOfBirth);
+            vm.lives.push(lifeVM);
+        }
     };
     return vm;
 };
 
 $(function () {
     $(".quote-interface").each(function () {
-        ko.applyBindings(new quoteViewModel(), this);
+        var viewModel = new quoteViewModel();
+        var initialJson = $(this).find("script.knockout-initial-data").html();
+        if (initialJson.length > 0) {
+            var initialData = ko.utils.parseJson(initialJson);
+            viewModel.initialize(initialData);
+        };
+        ko.applyBindings(viewModel, this);
     });
 });
