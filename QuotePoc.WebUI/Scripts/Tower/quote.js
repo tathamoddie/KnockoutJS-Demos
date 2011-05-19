@@ -1,5 +1,6 @@
 ﻿/// <reference path="../jquery-1.5.1.js" />
 /// <reference path="../knockout-1.2.0.js" />
+/// <reference path="../json2.js" />
 
 var refreshValidation = function () {
     $("form").removeData("validator");
@@ -53,7 +54,7 @@ $(function () {
         var viewModel = new quoteViewModel();
         var initialJson = $(this).find("script.knockout-initial-data").html();
         if (initialJson.length > 0) {
-            var initialData = ko.utils.parseJson(initialJson);
+            var initialData = JSON.parse(initialJson);
             viewModel.initialize(initialData);
         };
         ko.applyBindings(viewModel, this);
