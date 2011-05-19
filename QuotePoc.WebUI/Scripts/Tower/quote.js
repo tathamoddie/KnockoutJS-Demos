@@ -22,6 +22,9 @@ var quoteViewModel = function () {
     };
     vm.addLife = function () {
         vm.lives.push(new lifeViewModel());
+        $("form").removeData("validator");
+        $("form").removeData("unobtrusiveValidation");
+        $.validator.unobtrusive.parse("form");
     };
     return vm;
 };
