@@ -13,6 +13,22 @@ section {
     display: block;
 }
 
+table {
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+table th {
+    padding: 4px;
+    background-color: #eee;
+    border: solid 1px #bbb;
+}
+
+table td {
+    padding: 4px;
+    border: solid 1px #bbb;
+}
+
 /* Styles for basic forms
 -----------------------------------------------------------*/
 
@@ -50,6 +66,7 @@ textarea
 .field-validation-error
 {
     color: #ff0000;
+    display: block;
 }
 
 .field-validation-valid
