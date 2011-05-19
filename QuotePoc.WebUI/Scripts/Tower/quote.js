@@ -35,15 +35,17 @@ var quoteViewModel = function () {
         refreshValidation();
     };
     vm.initialize = function (initialData) {
-        var lifeCount = initialData.Lives.length;
-        for (var i = 0; i < lifeCount; i++) {
-            var life = initialData.Lives[i];
-            var lifeVM = new lifeViewModel();
-            lifeVM.title(life.Title);
-            lifeVM.firstName(life.FirstName);
-            lifeVM.lastName(life.LastName);
-            lifeVM.dateOfBirth(life.DateOfBirth);
-            vm.lives.push(lifeVM);
+        if (initialData.Lives) {
+            var lifeCount = initialData.Lives.length;
+            for (var i = 0; i < lifeCount; i++) {
+                var life = initialData.Lives[i];
+                var lifeVM = new lifeViewModel();
+                lifeVM.title(life.Title);
+                lifeVM.firstName(life.FirstName);
+                lifeVM.lastName(life.LastName);
+                lifeVM.dateOfBirth(life.DateOfBirth);
+                vm.lives.push(lifeVM);
+            }
         }
     };
     return vm;
