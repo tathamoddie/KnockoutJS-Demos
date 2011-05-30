@@ -90,3 +90,31 @@ textarea
 {
     display: none;
 }
+
+p { max-width: 45em; }
+
+ul li { max-width: 45em; margin-top: 0.5em; }
+
+.testdrive-link a:link,
+.testdrive-link a:active,
+.testdrive-link a:visited
+{
+    display: block;
+    width: 8em;
+    padding: 1em;
+    text-align: center;
+    background-color: #060;
+    color: #fff;
+    text-decoration: none;
+    border-left: solid 1px #090;
+    border-top: solid 1px #090;
+    border-right: solid 2px #030;
+    border-bottom: solid 2px #030;
+}
+
+.testdrive-link a:focus,
+.testdrive-link a:hover
+{
+    text-decoration: underline;
+    background-color: #070;
+}

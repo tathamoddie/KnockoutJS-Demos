@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Quote POC";
+}
+
+<h2>Quote POC</h2>
+<p>
+    This POC shows how KnockoutJS, jQuery Templating, System.ComponentModel.DataAnnotations
+    and ASP.NET MVC 3 can all work together. The example scenario is a life insurance quote
+    screen.
+</p>
+<p>
+    It demonstrates:
+</p>
+<ul>
+    <li>
+        Live, client-side bindings
+        <ul>
+            <li>The <em>Calculate</em> button isn't enabled until at least one <em>Life</em> is added.</li>
+            <li>The <em>Age Next</em> field is calculated as soon as the <em>Date of Birth</em> field loses focus.</li>
+            <li>Bindings are declarative. This increases the robustness of the code by coding a rule such as '<em>calculate button is enabled if there is one or more lives</em>' instead of having to handle the add life and remove life events separately.</li>
+        </ul>
+    </li>
+    <li>
+        Complex validation without cross-tier duplication
+        <ul>
+            <li>All validation is performed on the server for safety.</li>
+            <li><em>Most</em> validation is also performed on the client to reduce the feedback cycle.</li>
+            <li>Validation rules are shared between the client and server without having to write custom JavaScript. Keeps validation consistent.</li>
+            <li>Invalid fields are styled to highlight them and have validation messages shown next to them.</li>
+            <li>Complex, multi-property business rules still supported server side. (Example includes a business rule that at least one person must be named Tom.)</li>
+        </ul>
+    </li>
+    <li>
+        High performance
+        <ul>
+            <li>HTML is lean, mean and highly cachable with donut-caching</li>
+            <li>All JavaScript is in external, cachable files</li>
+            <li>JavaScript loads at the end of the page</li>
+        </ul>
+    </li>
+    <li>
+        Developer friendly
+        <ul>
+            <li>Code is nicely modularised across multiple files. Easy to keep files small and focussed. Easy to find the code you're looking for.</li>
+            <li>Everything is <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>.</li>
+            <li>No client/server mapping code. Models are bound and populated automatically in both directions.</li>
+        </ul>
+    </li>
+</ul>
+<p class="testdrive-link">
+    @Html.ActionLink("Testdrive POC", "Quote", "Quote")
+</p>
