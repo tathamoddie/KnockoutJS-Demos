@@ -95,13 +95,21 @@ p { max-width: 45em; }
 
 ul li { max-width: 45em; margin-top: 0.5em; }
 
+.testdrive-link
+{
+    width: 100%;
+    overflow: hidden;
+}
+
 .testdrive-link a:link,
 .testdrive-link a:active,
 .testdrive-link a:visited
 {
     display: block;
+    float: left;
     width: 8em;
     padding: 1em;
+    margin: 0 1em 0 0;
     text-align: center;
     background-color: #060;
     color: #fff;
