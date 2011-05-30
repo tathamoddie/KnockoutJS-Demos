@@ -5,6 +5,7 @@
 }
 
 @section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/QuotePoc/life.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/QuotePoc/quote.js")"></script>
 }
 
@@ -12,7 +13,8 @@
 
 @Html.ValidationSummary()
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     <div class="quote-interface">
         @{Html.RenderPartial("Lives", new ViewDataDictionary());}
         <input type="submit" value="Calculate" data-bind="enable: submitEnabled" />
