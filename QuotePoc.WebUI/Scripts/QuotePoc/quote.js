@@ -19,19 +19,32 @@ var quoteViewModel = function () {
 
 $(function () {
     $(".quote-interface")
-        .applyViewModel(quoteViewModel, function (initialData, viewModel) {
-            if (initialData.Lives) {
-                //TODO: Wrap this up in to a generic framework method. There's no reason for this to be handcoded.
-                var lifeCount = initialData.Lives.length;
-                for (var i = 0; i < lifeCount; i++) {
-                    var life = initialData.Lives[i];
-                    var lifeVM = new lifeViewModel();
-                    lifeVM.title(life.Title);
-                    lifeVM.firstName(life.FirstName);
-                    lifeVM.lastName(life.LastName);
-                    lifeVM.dateOfBirth(life.DateOfBirth);
-                    viewModel.lives.push(lifeVM);
-                }
-            }
-        });
+        .applyViewModel(quoteViewModel, mapQuoteInitialData);
 });
+
+
+
+
+
+
+
+
+
+
+/* NOTE: This function would be replaced by a generic framework
+   method. It's only handcoded in the interests of timeboxing
+   the POC development. */
+function mapQuoteInitialData(initialData, viewModel) {
+    if (initialData.Lives) {
+        var lifeCount = initialData.Lives.length;
+        for (var i = 0; i < lifeCount; i++) {
+            var life = initialData.Lives[i];
+            var lifeVM = new lifeViewModel();
+            lifeVM.title(life.Title);
+            lifeVM.firstName(life.FirstName);
+            lifeVM.lastName(life.LastName);
+            lifeVM.dateOfBirth(life.DateOfBirth);
+            viewModel.lives.push(lifeVM);
+        }
+    }
+}
