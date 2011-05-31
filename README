@@ -1,0 +1,3 @@
+This POC shows how KnockoutJS, jQuery Templating, System.ComponentModel.DataAnnotations and ASP.NET MVC 3 can all work together. The example scenario is a life insurance quote screen.
+
+Try it out live at http://knockoutjs.demos.tath.am/
